@@ -4,7 +4,7 @@ import shutil
 
 import Browser_Modules.flatpak as flatpak
 
-class ModuleChromium():
+class ModuleBrave():
 
 	def locate_browser(self):
 
@@ -17,18 +17,12 @@ class ModuleChromium():
 		return locators[platform.system()]()
 
 	def _locate_browser_windows(self):
-		return shutil.which("chromium")
+		return shutil.which("Brave")
 
 	def _locate_browser_macos(self):
-		return shutil.which("chromium")
+		return shutil.which("Brave")
 
 	def _locate_browser_linux(self):
-		# This will find packaged installs and snaps
-		browserpath = shutil.which("chromium")
-		if browserpath is None:
-			# try to find the flatpak version
-			fp = flatpak.flatpak()
-			browserpath = fp.get_flatpak_path("org.chromium.Chromium")
-		return browserpath
-
-#
+		# This browser doesn't currently exist for Linux
+		return None
+# 
